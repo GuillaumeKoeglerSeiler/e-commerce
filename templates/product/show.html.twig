@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BOUTEILLE{% endblock %}
+
+{% block body %}
+   <div class="home_admin"><a href="{{ path('product') }}"><i class="fa-solid fa-arrow-left"></i> Revenir à l'accueil</a></div>
+        <h1 class="h1_product_show">Caractéristique du vin {{ product.name }}</h1>
+
+            <div class="product">
+                <div class="product_left">
+                    <img src="{{ asset(product.picture) }}"><br>
+                </div>
+                <div class="product_right">
+
+                    <span class="strong">Région :</span> <a href="{{ path('area_show', {id:product.area.id}) }}">{{ product.area }}</a><br>
+                    
+                    <span class="strong">Cave :</span> <a href="{{ path('domain_show', {id:product.domain.id}) }}">{{ product.domain }}</a><br>
+                    
+                    <span class="strong">Cépage :</span> 
+                        {% for grape in product.grapeVariety %}    
+                        
+                            <a href="{{ path('grapeVariety_show', {id:grape.id}) }}">{{ grape.name }}</a>
+                    
+                        {% endfor %}<br>
+                    
+                    <span class="strong">Milésime :</span> {{ product.year  | date('Y')}}<br>
+                    
+                    <span class="strong">Caractéristique :</span> {{ product.description }}<br>
+                    
+                    <span class="strong">Note des experts :</span> {{ product.note }} / 10<br>
+                    
+                    <span class="strong">Tarif à la bouteille :</span> {{ product.price }} €<br>
+
+                    <a class="add_show" href="{{ path('cart_add', {id:product.id})}}">Ajouter au panier</a>
+                </div>
+            </div>
+        
+
+{% endblock %}

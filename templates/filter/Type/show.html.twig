@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TYPE{% endblock %}
+
+{% block body %}
+<div class="home_admin"><a href="{{ path('type') }}"><i class="fa-solid fa-arrow-left"></i> Revenir aux types</a></div>
+        <h1>Liste de nos vins de type : {{ type }}</h1>
+
+       {% for bottle in type.products %}
+               
+                <div class="grids filter_show">
+                    <div class="flex show">
+                        <div class="flex1">
+                            <div class="bottlePicture">
+                                 <a href="{{ path('product_show', {id:bottle.id}) }}" title="Caractéristiques du produit"><img class="picture" src="{{ asset(bottle.picture) }}"></a><br>
+                                  <a class="add" href="{{ path('cart_add', {id:bottle.id})}}">Ajouter au panier</a>
+                            </div>
+                        </div>
+                        <div class="flex2">
+                                <a href="{{ path('product_show', {id:bottle.id}) }}">{{ bottle.name }}</a><br>
+                                {{ bottle.price }} €<br>
+                                <a href="{{ path('area_show', {id:bottle.area.id}) }}">{{ bottle.area }}</a><br>
+                                <a href="{{ path('domain_show', {id:bottle.domain.id}) }}">{{ bottle.domain }}</a><br>
+                                {{ bottle.note }} / 10<br>
+                        </div>
+                    </div>
+                </div>
+
+   {% endfor %}
+{% endblock %}

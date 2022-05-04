@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prix{% endblock %}
+
+{% block body %}
+<div class="home_admin"><a href="{{ path('product') }}"><i class="fa-solid fa-arrow-left"></i> Revenir à l'accueil</a></div>
+            <a href="{{ path('price', { min:0, max:5 }) }}">
+                  <div class="filter_picture">
+                        <span class="filter_name">Moins de 5 €<br></span><br>
+                              <img src="{{ asset('image/price/cinq.jpg') }}">
+                  </div>
+            </a>
+
+            <a href="{{ path('price', { min:5, max:10 }) }}">
+                  <div class="filter_picture">
+                        <span class="filter_name">De 5 € à 10 €<br></span><br>
+                              <img src="{{ asset('image/price/dix.jpg') }}">
+                  </div>
+            </a>
+
+
+            <a href="{{ path('price', { min:10, max:20 }) }}">
+                  <div class="filter_picture">
+                        <span class="filter_name">De 10 € à 20 €<br></span><br>
+                              <img src="{{ asset('image/price/vingt.jpg') }}">
+                  </div>
+            </a>
+
+            <a href="{{ path('price', { min:20, max:30 }) }}">
+                  <div class="filter_picture">
+                        <span class="filter_name">De 20 € à 30 €<br></span><br>
+                              <img src="{{ asset('image/price/trente.jpeg') }}">
+                  </div>
+            </a>
+
+            <a href="{{ path('price', { min:30, max:50 }) }}">
+                  <div class="filter_picture">
+                        <span class="filter_name">De 30 € à 50 €<br></span><br>
+                              <img src="{{ asset('image/price/cinquante.jpg') }}">
+                  </div>
+            </a>
+
+            <a href="{{ path('price', { min:50 }) }}">
+                  <div class="filter_picture">
+                        <span class="filter_name">A partir de 50 €<br></span><br>
+                              <img src="{{ asset('image/price/billets.jpg') }}">
+                  </div>
+            </a>
+
+            {% if not min and not max %}
+            
+            {% else %}
+                  
+                  {% if min == 50 %}
+                  
+                        <h1>Liste de nos vins entre au-dessus de {{ min }} € </h1>
+
+                              {% for bottle in products %}
+
+                                    <div class="grids filter_show">
+                    <div class="flex show">
+                        <div class="flex1">
+                            <div class="bottlePicture">
+                                 <a href="{{ path('product_show', {id:bottle.id}) }}" title="Caractéristiques du produit"><img class="picture" src="{{ bottle.picture }}"></a><br>
+                                  <a class="add" href="{{ path('cart_add', {id:bottle.id})}}">Ajouter au panier</a>
+                            </div>
+                        </div>
+                        <div class="flex2">
+                                <a href="{{ path('product_show', {id:bottle.id}) }}">{{ bottle.name }}</a><br>
+                                {{ bottle.price }} €<br>
+                                <a href="{{ path('area_show', {id:bottle.area.id}) }}">{{ bottle.area }}</a><br>
+                                <a href="{{ path('domain_show', {id:bottle.domain.id}) }}">{{ bottle.domain }}</a><br>
+                                {{ bottle.note }} / 10<br>
+                        </div>
+                    </div>
+                </div>
+
+                              {% endfor %} 
+                  {% else %}
+                  
+                        <h1>Liste de nos vins entre {{ min }}€ et {{ max }}€ </h1>
+
+                        {% for bottle in products %}
+
+                              <div class="grids filter_show">
+                    <div class="flex show">
+                        <div class="flex1">
+                            <div class="bottlePicture">
+                                 <a href="{{ path('product_show', {id:bottle.id}) }}" title="Caractéristiques du produit"><img class="picture" src="{{ bottle.picture }}"></a><br>
+                                  <a class="add" href="{{ path('cart_add', {id:bottle.id})}}">Ajouter au panier</a>
+                            </div>
+                        </div>
+                        <div class="flex2">
+                                <a href="{{ path('product_show', {id:bottle.id}) }}">{{ bottle.name }}</a><br>
+                                {{ bottle.price }} €<br>
+                                <a href="{{ path('area_show', {id:bottle.area.id}) }}">{{ bottle.area }}</a><br>
+                                <a href="{{ path('domain_show', {id:bottle.domain.id}) }}">{{ bottle.domain }}</a><br>
+                                {{ bottle.note }} / 10<br>
+                        </div>
+                    </div>
+                </div>
+
+                        {% endfor %}
+
+                  {% endif %}
+
+            {% endif %}
+
+{% endblock %}

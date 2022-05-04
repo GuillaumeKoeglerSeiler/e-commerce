@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des membres{% endblock %}
+
+{% block body %}
+
+    <h1>Gestion des membres</h1>
+
+    <table class="table table-info table-hover table-responsive table-center">
+        <thead>
+            <tr>
+                <th>Adresse mail du membre</th>
+                <th>Voir les commandes du membre</th>
+                <th>Suppression suite demande</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for user in users|sort((a, b) => a.email <=> b.email) %}
+        <tr>
+            <td>{{ user.username}}</td>
+            <td><a href="{{ path('admin_user_orderings', {id:user.id}) }}">Voir les commandes</a></td>
+            <td><a href="{{ path('admin_user_delete', {id:user.id}) }}" title="Supprimer"><i class="fa-solid fa-circle-xmark"></i></td>
+        </tr>
+
+    {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

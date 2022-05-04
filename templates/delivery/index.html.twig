@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livraison{% endblock %}
+
+{% block body %}
+
+    {% if app.user %}
+        <h1 class="center">Livraison</h1>
+        <div class="body_form">
+            {{ form_start(confirmationForm, {'action':  path('ordering_confirm')})}}
+            {{ form_widget(confirmationForm) }}
+            <div class="bottom"><button type="submit" class="btn btn-lg btn-danger">Passer au paiement</button></div>
+    
+            {{ form_end(confirmationForm) }}
+        </div>
+    {% else %}
+            <h2 class="center">Vous devez être connecté pour confirmer cette commande</h2>
+            <div class="connect_register">
+                <a class="order_button" href=" {{path('app_login')}}">Se connecter</a>
+                ou <a class="order_button" href="{{ path('app_register') }}">Créez un compte</a>
+            </div>
+    {% endif %}
+
+{% endblock %}

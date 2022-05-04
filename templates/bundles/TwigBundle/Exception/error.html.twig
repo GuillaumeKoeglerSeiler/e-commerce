@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur{% endblock %}
+
+{% block body %}
+
+<p>Il s'agit d'une erreur !</p><br>
+
+<img src="{{ asset('image/erreur.png') }}" alt="erreur"><br>
+
+<p>Nous vous invitons à retourner vers notre page d'accueil en <a href="{{ path('product') }}">suivant ce lien</a></p>
+
+{% endblock %}

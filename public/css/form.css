@@ -1,0 +1,70 @@
+form, .register_link, h1{
+    text-align: center;
+}
+form{
+    line-height: 2em;
+}
+.register_link a{
+    text-decoration: none;
+    color: white;
+}
+.register_link{
+    border: 2px solid #1F1F1F;
+    background-color: #1F1F1F;
+    margin-bottom: 2em;
+    margin-left: 2em;
+    margin-right: 2em;
+    border-radius: 10px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+.register_link:active{
+    transform:scale(0.9);
+}
+.register_cgu{
+    text-decoration: none;
+    color: black;
+}
+.input_form{
+    font-weight: 700;
+    font-size: 1.5em;
+}
+.body_form{
+    width: 500px;
+    margin: auto;
+}
+.register_submit{
+    margin-top: 1em;
+}
+.order_button{
+    text-decoration: none;
+    font-weight: 700;
+    color: white;
+    border: 2px solid #B40210;
+    background-color: #B40210;
+    padding: 0.3em;
+}
+.order_button:hover{
+    border: 2px solid black;
+    background-color: black;
+    color: #B40210;
+}
+.center{
+    text-align: center;
+}
+.connect_register{
+    text-align: center;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+.bottom{
+    margin-bottom: 2em;
+}
+
+/*
+PAIEMENT
+*/
+.submit_payement{
+    margin-top: 5em;
+    margin-bottom: 2em;
+}

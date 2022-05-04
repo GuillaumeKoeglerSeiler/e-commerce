@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche avancée{% endblock %}
+
+{% block body %}
+    <div class="body_form">
+        <h1>Recherche avancée</h1>
+
+            {{ form(search_form) }}
+    </div>
+
+        {% if app.request.method == 'POST'%}
+
+            <div class="search">
+
+                {% if products|length == 0 %}
+
+                    <h1>Aucun résultat pour votre recherche</h1>
+
+                {% else %}
+
+                    <h1>Résultat de la recherche</h1>
+
+                {% for product in products %}
+            
+                <div class="grids filter_show">
+                        <div class="flex">
+                            <div class="flex1">
+                                <div class="bottlePicture">
+                                    <a href="{{ path('product_show', {id:product.id}) }}" title="Caractéristiques du produit"><img class="picture" src="{{ product.picture }}"></a><br>
+                                    <a class="add" href="{{ path('cart_add', {id:product.id})}}">Ajouter au panier</a>
+                                </div>
+                            </div>
+                            <div class="flex2">
+                                    <a href="{{ path('product_show', {id:product.id}) }}">{{ product.name }}</a><br>
+                                    {{ product.price }} €<br>
+                                    <a href="{{ path('area_show', {id:product.area.id}) }}">{{ product.area }}</a><br>
+                                    <a href="{{ path('domain_show', {id:product.domain.id}) }}">{{ product.domain }}</a><br>
+                                    {{ product.note }} / 10<br>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+                {% endif %}
+            </div>
+{% endif %}
+
+{% endblock %}

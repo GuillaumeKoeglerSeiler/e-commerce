@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier{% endblock %}
+
+{% block body %}
+
+    <table class="table table-info table-hover table-responsive table-center cart_table">
+        <thead>
+            <tr>
+                <th>Produit</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bottle in dataOrder %}
+        <tr>
+            <td>{{ bottle.product.name}}</td>
+            <td>{{ bottle.product.price}} €</td>
+            <td>
+                <a href="{{ path("cart_remove", { id: bottle.product.id }) }}"><i class="fa-solid fa-minus"></i></a>
+                {{ bottle.quantity}} 
+                <a href="{{ path("cart_add", { id: bottle.product.id }) }}"><i class="fa-solid fa-plus"></i></a></td>
+            <td>{{ bottle.quantity * bottle.product.price }} €</td>
+            <td><a href="{{ path("cart_delete", { id: bottle.product.id }) }}"><i class="fa-solid fa-trash-can"></i></a></td>
+        </tr>
+        {% else %}
+
+        <td colspan="5">Votre panier est vide</td>
+            
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Total</td>
+                <td>{{ total }} €</td>
+                <td><a class="order_button" href="{{ path("cart_delivery") }}">Passer au paiement</a></td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+  Paiement
+{% endblock %}
+
+{% block body %}
+  <h1>Payez votre commande</h1>
+  <form id="payment-form">
+    <div id="card-element"> 
+    {# contiendra le formulaire de saisie des informations de carte #}
+    </div>
+    <button id="submit" class="btn btn-lg btn-danger submit_payement">
+      <div class="spinner hidden" id="spinner"></div>
+      <span id="button-text">Payer</span>
+    </button>
+    <p id="card-error" role="alert"> {# contiendra les erreurs relatives à la carte #}
+    </p>
+  </form>
+{% endblock %}
+{% block javascripts %}
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    const clientSecret = '{{ clientSecret }}'
+    const stripePublicKey = '{{ stripePublicKey }}'
+    const redirectAfterSuccessUrl = "{{ url('ordering_payment_success', {'id': ordering.id }) }}"
+  </script>
+  <script src="{{ asset('js/payment.js') }}"></script>
+{% endblock %}

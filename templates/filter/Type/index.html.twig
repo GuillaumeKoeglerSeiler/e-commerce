@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Types{% endblock %}
+
+{% block body %}
+<div class="home_admin"><a href="{{ path('product') }}"><i class="fa-solid fa-arrow-left"></i> Revenir à l'accueil</a></div>
+{% for type in types %}
+    {# Ce chemin permet d'identifier les produits via l'id du type pour ressortir
+    uniquement les bouteilles correspondantes à cet id #}
+            
+        <a href="{{ path('type_show', {id:type.id}) }}">
+            <div class="filter_picture"><span class="filter_name">{{ type }}<br></span><br><img src="{{ asset('image/type/' ~ type ~ '.jpeg') }}"></div></a>
+
+{% endfor %} 
+
+{% endblock %}

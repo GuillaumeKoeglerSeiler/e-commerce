@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des produits{% endblock %}
+
+{% block body %}
+<div class="home_admin"><a href="{{ path('admin_home') }}"><i class="fa-solid fa-arrow-left"></i> Revenir au panneau de configuration</a></div>
+	<h1>Gestion des produits</h1>
+    <div class="admin_grid">
+        <a href="{{ path('admin_product_add_product') }}">Ajouter un produit</a>
+        <a href="{{ path('admin_product_add_domain') }}">Ajouter un domaine</a>
+        <a href="{{ path('admin_product_add_grapeVariety') }}">Ajouter un cépage</a>
+    </div>
+    <table class="table table-info table-hover table-responsive table-center">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Région</th>
+                <th>Stock</th>
+                <th>Prix</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for product in products|sort((a, b) => a.name <=> b.name) %}
+        
+         <tr>
+                <td>{{ product.name}}</td>
+                <td>{{ product.area}}</td>
+                <td>{{ product.stock }}</td>
+                <td>{{ product.price }}</td>
+                <td>
+                <a href="{{ path('admin_product_edit', {id: product.id}) }}" title="Modifier"><i class="fa-solid fa-helmet-safety"></i></a>
+                </td>
+                <td>
+                <a href="{{ path('admin_product_delete', {id:product.id}) }}" title="Supprimer"><i class="fa-solid fa-trash-can"></i></a>
+                </td>
+            </tr>
+
+    {% endfor %}
+           
+        </tbody>
+    </table>
+
+{% endblock %}

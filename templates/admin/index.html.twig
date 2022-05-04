@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panneau d'administration{% endblock %}
+
+{% block body %}
+
+    <h1>Panneau d'administration</h1>
+        <div class="grid_admin_index">
+            <a href="{{ path('admin_product_home') }}">Accéder à la gestion des produits</a>
+
+            <a href="{{ path('admin_user_home') }}">Accéder à la gestion des membres</a>
+        </div>
+
+{% endblock %}

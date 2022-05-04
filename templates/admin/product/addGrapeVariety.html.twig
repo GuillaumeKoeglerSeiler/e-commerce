@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panneau d'administration{% endblock %}
+
+{% block body %}
+    <div class="home_admin"><a href="{{ path('admin_product_home') }}"><i class="fa-solid fa-arrow-left"></i> Revenir en arrière</a></div>
+            <div class="body_form">{{ form(formGrapeVariety) }}</div>
+{% endblock %}

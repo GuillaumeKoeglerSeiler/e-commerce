@@ -1,0 +1,149 @@
+
+@media screen and (max-width: 1080px){
+
+    .filter_nav{
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    .filter_nav a{
+        margin-top: 2em;
+    }
+    .grid{
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    body{ 
+        margin-bottom: 6em;
+    }
+    .foot3{
+        padding-left: 1em;
+    }
+    .foot1{
+        padding-right: 1em;
+    }
+}
+
+
+@media screen and (max-width: 750px) {
+
+    body{
+        width: 100%;
+        margin-bottom: -3em;
+    }
+    .wrapper{
+        max-width: 100%;
+    }
+    .header, .texte_banniere, .ensavoir{
+        display: none;
+    }
+    .filter_nav{
+        display: grid;
+        grid-template-columns: 80%;
+    }
+    .filter_nav a{
+        margin-top: 2em;
+    }
+    .grid{
+        display: grid;
+        grid-template-columns: 100%;
+    }
+    .footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: none;
+    }
+    .foot3bottom{
+        display: flex;
+        flex-direction: column;
+    }
+    .foot1{
+        border: none;
+        padding-right: 0;
+    }
+    .foot1 p{
+        text-align: center;
+        padding-top: 1em;
+    }
+    .foot2{
+        margin: auto;
+    }
+    .foot3{
+        border: none;
+        text-align: center;
+        padding-left: 0;
+    }
+    #scroll{
+        font-size: 2em;
+    }
+    .foot3bottom{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .burger{
+        visibility: visible;
+        display: flex;
+        position: absolute;
+        z-index: 1;
+        right: 20px;
+        font-size: 2em;
+        top: 25px;
+        cursor: pointer;
+        color: white;
+    }
+    .titre_banniere{
+        padding-top: 50px;
+    }
+    .burger_nav{
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100vh;
+        background-color: #4e5c72;
+        z-index: 2;
+        text-align: center;
+        line-height: 2em;
+        font-size: 25px;
+        transform: translateX(100%);
+        transition: 0.3s transform ease-in-out;
+        padding-top: 5em;
+    }
+    .burger_nav a{
+        color: white;
+        text-decoration: none;
+    }
+    .burger_nav a:hover{
+        color: #B40210;
+    }
+    .burger_nav.open{
+        transform: initial;
+        display: block;
+    }
+    .fa-xmark{
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        cursor: pointer;
+        color: white;
+        font-size: 2em;
+    }
+    .product{
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        margin: auto;
+    }
+    .product img{
+        width: 100%;
+    }
+    .h1_product_show{
+        margin-top: 3em;
+    }
+    .cart_table{
+        margin-top: 10em;
+        margin-bottom: 10em;
+    }
+}
+

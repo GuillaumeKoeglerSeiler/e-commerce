@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des membres{% endblock %}
+
+{% block body %}
+
+    <h1>Commandes du membre</h1>
+
+    <table class="table table-info table-hover table-responsive table-center">
+        <thead>
+            <tr>
+                <th>Membre</th>
+                <th>Adresse</th>
+                <th colspan="2">Commande</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+
+    {% for user in users %}
+        {% if user.orderings|length == 0 %}
+
+        <p class="no_order">Ce membre n'a pas encore effectué de commande !</p>
+
+        {% else %}
+            {% for o in user.orderings %}
+
+            <tr>
+                        <td> {{o.fullname}}</td>
+                        <td>{{o.adress}} <br> {{o.postalCode}}, {{o.city}} </td>
+                        <td>
+                            {% for item in o.orderingItems %}
+                            ({{item.quantity}})x {{item.productName}} ({{item.total}} €) </br>
+                        {% endfor %}
+                        </td>
+                        <td><strong> {{o.total}} €</strong></td>
+                        <td>{{o.orderingedAt | date('d/m/y h:i')}}</td>
+                    </tr>
+
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

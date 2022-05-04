@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Note{% endblock %}
+
+{% block body %}
+<div class="home_admin"><a href="{{ path('product') }}"><i class="fa-solid fa-arrow-left"></i> Revenir à l'accueil</a></div>
+      <a href="{{ path('note', { min:0, max:2 }) }}">
+            <div class="filter_picture">
+                  <span class="filter_name">0 à 2<br></span><br>
+                        <img src="{{ asset('image/note/zero_deux.png') }}">
+            </div>
+      </a>
+
+      <a href="{{ path('note', { min:2, max:4 }) }}">
+            <div class="filter_picture">
+                  <span class="filter_name">2 à 4<br></span><br>
+                        <img src="{{ asset('image/note/deux_quatre.png') }}">
+            </div>
+      </a>
+
+      <a href="{{ path('note', { min:4, max:6 }) }}">
+            <div class="filter_picture">
+                  <span class="filter_name">4 à 6<br></span><br>
+                        <img src="{{ asset('image/note/quatre_six.png') }}">
+            </div>
+      </a>
+
+      <a href="{{ path('note', { min:6, max:8 }) }}">
+            <div class="filter_picture">
+                  <span class="filter_name">6 à 8<br></span><br>
+                        <img src="{{ asset('image/note/six_huit.png') }}">
+            </div>
+      </a>
+
+      <a href="{{ path('note', { min:8 }) }}">
+            <div class="filter_picture">
+                  <span class="filter_name">8 à 10<br></span><br>
+                        <img src="{{ asset('image/note/huit_dix.png') }}">
+            </div>
+      </a>
+
+      {% if not min and not max %}
+         
+      {% else %}
+
+            {% if min == 8 %}
+            
+           <h1>Liste de nos vins au-dessus de {{ min }}/10</h1>
+           
+           {% for product in products %}
+
+                  <div class="grids filter_show">
+                    <div class="flex show">
+                        <div class="flex1">
+                            <div class="bottlePicture">
+                                 <a href="{{ path('product_show', {id:product.id}) }}" title="Caractéristiques du produit"><img class="picture" src="{{ product.picture }}"></a><br>
+                                  <a class="add" href="{{ path('cart_add', {id:product.id})}}">Ajouter au panier</a>
+                            </div>
+                        </div>
+                        <div class="flex2">
+                                <a href="{{ path('product_show', {id:product.id}) }}">{{ product.name }}</a><br>
+                                {{ product.price }} €<br>
+                                <a href="{{ path('area_show', {id:product.area.id}) }}">{{ product.area }}</a><br>
+                                <a href="{{ path('domain_show', {id:product.domain.id}) }}">{{ product.domain }}</a><br>
+                                {{ product.note }} / 10<br>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %} 
+
+            {% else %}  
+            
+                  <h1>Liste de nos vins entre {{ min }}/10 et {{ max }}/10 </h1>
+
+            {% for bottle in products %}
+
+                  <div class="grids filter_show">
+                    <div class="flex">
+                        <div class="flex1">
+                            <div class="bottlePicture">
+                                 <a href="{{ path('product_show', {id:bottle.id}) }}" title="Caractéristiques du produit"><img class="picture" src="{{ bottle.picture }}"></a><br>
+                                  <a class="add" href="{{ path('cart_add', {id:bottle.id})}}">Ajouter au panier</a>
+                            </div>
+                        </div>
+                        <div class="flex2">
+                                <a href="{{ path('product_show', {id:bottle.id}) }}">{{ bottle.name }}</a><br>
+                                {{ bottle.price }} €<br>
+                                <a href="{{ path('area_show', {id:bottle.area.id}) }}">{{ bottle.area }}</a><br>
+                                <a href="{{ path('domain_show', {id:bottle.domain.id}) }}">{{ bottle.domain }}</a><br>
+                                {{ bottle.note }} / 10<br>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+            {% endif %}
+      {% endif %}
+
+{% endblock %}

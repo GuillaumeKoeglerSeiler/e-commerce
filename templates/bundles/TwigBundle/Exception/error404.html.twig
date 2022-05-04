@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur 404{% endblock %}
+
+{% block body %}
+
+<p>La page que vous recherchez n'a pas été trouvé !</p><br>
+
+<img src="{{ asset('image/404.png') }}" alt="erreur"><br>
+
+<p>Nous vous invitons à retourner vers notre page d'accueil en <a href="{{ path('product') }}">suivant ce lien</a></p>
+
+{% endblock %}

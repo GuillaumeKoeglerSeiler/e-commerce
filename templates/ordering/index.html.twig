@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Mes commandes
+{% endblock %}
+
+{% block body %}
+<h1> Récapitulatif des commandes </h1>
+
+{% if app.user %}
+
+    {% if orderings|length == 0 %}
+
+    <p class="center">Vous n'avez pas encore effectuez de commande !</p>
+
+    {% else %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Client</th>
+                <th>Adresse</th>
+                <th>Date de comande</th>
+                <th>Contenu de la commande</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for o in orderings %}    
+            <tr>
+                <td> {{o.fullname}}</td>
+                <td>{{o.adress}} <br> {{o.postalCode}}, {{o.city}} </td>
+                <td>{{o.orderingedAt | date('d/m/y h:i')}}</td>
+                <td>
+                    <ul> {% for item in o.orderingItems %}
+                    <li>({{item.quantity}})x {{item.productName}} ({{item.total}} €) </li>
+                {% endfor %}</ul>
+                </td>
+                <td> {{o.total}} €</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endif %}
+{% endblock %}

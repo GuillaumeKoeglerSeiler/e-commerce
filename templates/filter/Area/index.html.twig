@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Régions{% endblock %}
+
+{% block body %}
+<div class="home_admin"><a href="{{ path('product') }}"><i class="fa-solid fa-arrow-left"></i> Revenir à l'accueil</a></div>
+{% for area in areas|sort((a, b) => a.name <=> b.name) %}
+    {# Ce chemin permet d'identifier les produits via l'id de la région pour ressortir
+    uniquement les bouteilles correspondantes à cet id #}
+
+        <a href="{{ path('area_show', {id:area.id}) }}">
+            <div class="filter_picture">
+                <span class="filter_name">{{ area }}<br></span><br>
+                    <img src="{{ asset('image/area/' ~ area ~ '.jpeg') }}">
+            </div>
+        </a>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Qui sommes-nous ?{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="{{ asset('css/who.css') }}">
+        {% endblock %}
+        <div class="accueil"><a href="{{ path('product') }}"><i class="fa-solid fa-arrow-left"></i> Accueil</a></div>
+        <body>
+           <div class="box">
+                <div class="imgBx">
+                    <img src="{{ asset('image/guillaume.png') }}">
+                </div>
+                <div class="content">
+                    <h2>Guillaume<br><span>Développeur Web Front-End</span></h2>
+                </div>
+            </div>
+            <div class="box">
+                <div class="imgBx">
+                    <img src="{{ asset('image/guillaume.jpg') }}">
+                </div>
+                <div class="content">
+                    <h2>Guillaume<br><span>Développeur Web Back-End</span></h2>
+                </div>
+            </div>
+
+            <p class="paragraphe">Créer en 2022, Vin Coeur est le fruit de deux passionés
+            de vin et développeur web, Guillaume et Guillaume (qui partagent la même enveloppe corporelle).
+            Notre objectif est de sélectionner pour vous les meilleurs vins issus de nos talentueuses
+            régions françaises.</p>
+        </body>
+    </html>

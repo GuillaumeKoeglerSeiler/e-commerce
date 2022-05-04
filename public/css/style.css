@@ -1,0 +1,311 @@
+*{
+    box-sizing: border-box; /*indique au navigateur de prendre en compte la bordure et le remplissage dans la valeur définie pour la largeur et la hauteur*/
+}
+body{
+    background: linear-gradient(205deg, #f4776d 0, #f77479 3.33%, #f87186 6.67%,#f77093 10%,#f471a0 13.33%,#ef72ad 16.67%,#e975ba 20%,#e079c7 23.33%,#d57dd2 26.67%, #c882dd 30%,#b988e7 33.33%,#a78def 36.67%, #9393f6 40%,#7c98fb 43.33%,#5f9dfe 46.67%,#38a1ff 50%,#00a5fe 53.33%,#00a9fc 56.67%,#00acf8 60%,#00aef1 63.33%, #00b0ea 66.67%, #00b2e0 70%, #00b3d6 73.33%, #00b4ca 76.67%, #00b5be 80%, #00b5b1 83.33%,#00b5a3 86.67%, #00b496 90%, #00b488 93.33%, #00b37b 96.67%, #37b16e 100%);
+    width: 90%;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    background-repeat: no-repeat;
+    margin-bottom: 6em;
+}
+.cgu{
+    text-align: center;
+}
+.bottlePicture{
+    width: 150px;
+}
+.picture{
+    width: 100%;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    background-color: #1F1F1F;
+}
+.grids{
+    border: 3px solid #1F1F1F;
+    margin: 20px;
+    background-color: lightgrey;
+}
+.flex{
+    display: flex;
+}
+.flex2{
+    line-height: 1.8em;
+    border-left: 2px solid grey;
+    padding-left: 1em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.flex1{
+    text-align: center;
+    padding-bottom: 1em;
+}
+.flex2 a {
+    text-decoration: none;
+    color: black;
+}
+.add{
+    font-weight: 700;
+    text-decoration: none;
+    color: #B40210;
+}
+.pagination{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    text-align:center;
+    font-size: 1em;
+    text-decoration: none;
+    color: white;
+}
+.pagination:hover{
+    color: black;
+}
+.pagi{
+    display:flex;
+    justify-content: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: #B40210;
+    font-size: 1.5em;
+    color: white;
+}
+.fa-trash-can{
+    color: red;
+    font-size: 1.5em;
+}
+.fa-minus, .fa-plus{
+    color: black;
+}
+/*
+HEADER
+*/
+.header{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    border-bottom: 2px solid black;
+}
+.fa-shopping-cart, .fa-hammer, .fa-money-bill-wave, .fa-user-circle, .recherche, .header2 p, .fa-door-open, .fa-magnifying-glass{
+    color: white;
+    border: 1px solid black;
+    background-color: black;
+    padding: 0.5em;
+    border-radius: 100px;
+}
+.fa-shopping-cart:hover, .fa-hammer:hover, .fa-money-bill-wave:hover, .fa-user-circle:hover,.fa-magnifying-glass:hover, .recherche:hover, .header2 p:hover, .fa-door-open:hover{
+    transition: 0.3s;
+    transform: scale(1.2);
+    color: #F67099;
+    border-radius: 20px;
+}
+.fas, .fa-door-open, .fa-hammer, .fa-money-bill-wave{
+    font-size: 2em;
+}
+.fa-magnifying-glass{
+    font-size: 1.4em;
+}
+.recherche{
+    text-decoration: none;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.header2{
+    display: flex;
+    justify-content: space-around;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.header1{
+    margin-left: auto;
+    margin-right: auto;
+}
+.logo{
+    width: 200px;
+    height: 200px;
+}
+.head_username{
+    text-align: center;
+}
+.flash{
+    text-align: center;
+}
+
+/*
+FOOTER
+*/
+.footer{
+    display: flex;
+    justify-content: space-around;
+    background-color : #1F1F1F;
+    padding-bottom: 0.5em;
+    color: grey;
+}
+.footer a{
+    color: grey;
+}
+.footer a:hover, .copy:hover{
+    color: #B40210;
+}
+.foot1left, .foot1right{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 3.5em;
+}
+.foot1 p:hover{
+    color: #b40210;
+}
+.foot1{
+    border-right: 2px solid grey;
+    height: 200px;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-right: 6em;
+}
+.foot3{
+    border-left: 2px solid grey;
+    height: 200px;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 6em;
+}
+.insta, .linkedin{
+    padding-bottom: 2em;
+}
+.twitter:hover, .linkedin:hover, .insta:hover, .facebook:hover{
+    transform: scale(1.2);
+    transition: 0.5s;
+}
+.logo2{
+    width: 250px;
+    height: 250px;
+}
+.foot3{
+    display: flex;
+    flex-direction: column;
+    line-height: 2em;
+}
+.foot3 a {
+    text-decoration: none;
+}
+.fa-angle-up{
+    cursor: pointer;
+    font-size: 2em;
+}
+.fa-angle-up:hover, #tel:hover{
+    color: #B40210;
+}
+.tel_num{
+    color: #1F1F1F;
+}
+.foot3bottom{
+    display: flex;
+    justify-content: space-between;
+}
+/*
+BANNIERE
+*/
+.vigne{
+    width: 100%;
+    filter: grayscale(60%) contrast(50%);
+    display: block;
+}
+.burger_nav{
+    display:none;
+}
+.burger{
+    visibility: hidden;
+}
+.banniere{
+    height: 350px;
+    overflow: hidden;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+.banniere a{
+    color: white;
+    text-decoration: none;
+}
+.under_vigne{
+    width: 50%;
+    position: absolute;
+    align-items: center;
+    line-height: 3em;
+    padding-top: 2em;
+}
+.ensavoir{
+    border: 2px solid white;
+    padding: 0.6em;
+}
+/*
+MES COMMANDES
+*/
+.center{
+    text-align: center;
+}
+
+/*
+ADMIN
+*/
+.home_admin a{
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+}
+.fa-helmet-safety{
+    font-size: 1.5em;
+    color: green;
+}
+.no_order{
+    font-weight: 700;
+}
+.admin_grid{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    text-align: center;
+    margin-bottom: 3em;
+    margin-top: 2em;
+}
+.admin_grid a, .grid_admin_index a{
+    text-decoration: none;
+    border: 2px solid #B40210;
+    margin-right: 5em;
+    margin-left: 5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: #B40210;
+    color: black;
+    font-weight: 700;
+}
+.admin_grid a:hover, .grid_admin_index a:hover{
+    border: 2px solid black;
+    color: white;
+}
+.grid_admin_index{
+    display: grid;
+    grid-template-columns: 50% 50%;    
+    text-align: center;
+    margin-top: 6em;
+    margin-bottom: 6em;
+}
+.table-center{
+    margin-top: 2em;
+}
+.table-center td, .table-center tr{
+    text-align: center;
+}
+.head_username{
+    background-color: #B40210;
+    color: white;
+}
+.fa-circle-xmark{
+    font-size: 1.8em;
+    color: #B40210;
+}
+.fa-circle-xmark:hover{
+    font-size: 2em;
+}
+

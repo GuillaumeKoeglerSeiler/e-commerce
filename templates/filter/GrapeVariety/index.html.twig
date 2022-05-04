@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cépages{% endblock %}
+
+{% block body %}
+<div class="home_admin"><a href="{{ path('product') }}"><i class="fa-solid fa-arrow-left"></i> Revenir à l'accueil</a></div>
+{% for grapeVariety in grapeVarietys|sort((a, b) => a.name <=> b.name) %}
+    
+    {# Ce chemin permet d'identifier les produits via l'id du cépage pour ressortir
+    uniquement les bouteilles correspondantes à cet id #}
+
+        <a href="{{ path('grapeVariety_show', {id:grapeVariety.id}) }}">
+            <div class="filter_picture">
+                <span class="filter_name">{{ grapeVariety }}<br></span><br>
+                    <img src="{{ asset('image/grapeVariety/' ~ grapeVariety ~ '.jpg') }}">
+            </div>
+        </a>
+
+{% endfor %}
+
+{% endblock %}
